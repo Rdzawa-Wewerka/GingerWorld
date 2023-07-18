@@ -6,8 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/OutdoorsScene.unity
+    path: Assets/Scenes/Core.unity
+    guid: fd54f857f799b63b0bf221e280c2b7c3
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: eccf1c5eae027b3b3bad0e1c9767ad4f
+  - enabled: 1
+    path: Assets/Scenes/Game/Game.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scenes/Game/HUD.unity
+    guid: 6cd6b0d7b5e0fc25cba5f079865ef89c
+  - enabled: 1
+    path: Assets/Scenes/Game/Player.unity
+    guid: 54a53c7e2d6d5476ea30e95c1562acf9
+  - enabled: 1
+    path: Assets/Scenes/Game/Locations/Location1.unity
+    guid: 1da34b4dced7e28f0b742c335ef0cf7a
+  - enabled: 1
+    path: Assets/Scenes/Game/Locations/Location2.unity
+    guid: 47043ef09f57869c4b205077b163ce80
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3a9c378dcf0a11a19b79a6ecce2843e6,
       type: 2}
