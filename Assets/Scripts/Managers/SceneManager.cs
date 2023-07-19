@@ -26,13 +26,13 @@ namespace SceneManager
     internal class SceneLoader
     {
 
-        int activeScene;
-        List<SceneData> scenes;
+        private int _activeScene;
+        private List<SceneData> _scenes;
 
         public SceneLoader()
         {
-            scenes = new List<SceneData>();
-            activeScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            _scenes = new List<SceneData>();
+            _activeScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         }
 
         public void AddLoadedScenes()
@@ -40,7 +40,7 @@ namespace SceneManager
             for (int i = 0; i < UnityEngine.SceneManagement.SceneManager.loadedSceneCount; i++)
             {
                 int idx = UnityEngine.SceneManagement.SceneManager.GetSceneAt(i).buildIndex;
-                scenes.Add(new SceneData(idx, true, false, true));
+                _scenes.Add(new SceneData(idx, true, false, true));
             }
         }
 
@@ -51,7 +51,7 @@ namespace SceneManager
             {
                 int idx = UnityEngine.SceneManagement.SceneUtility.GetBuildIndexByScenePath(scene.path);
                 SceneData data = new SceneData(-1, false, false, false);
-                foreach (var item in scenes)
+                foreach (var item in _scenes)
                 {
                     if (idx == item.buildIndex)
                     {
@@ -63,10 +63,10 @@ namespace SceneManager
                 if (data.buildIndex == -1)
                 {
                     data = new SceneData(idx, false, true, false);
-                    scenes.Add(data);
+                    _scenes.Add(data);
                 }
                 data.toLoad = true;
-                if (scene.isActive) activeScene = idx;
+                if (scene.isActive) _activeScene = idx;
             }
         }
 
@@ -76,7 +76,7 @@ namespace SceneManager
             {
                 int idx = UnityEngine.SceneManagement.SceneUtility.GetBuildIndexByScenePath(scene.path);
                 SceneData data = new SceneData(-1, false, false, false);
-                foreach (var item in scenes)
+                foreach (var item in _scenes)
                 {
                     if (idx == item.buildIndex)
                     {
@@ -91,12 +91,12 @@ namespace SceneManager
 
         public List<SceneData> GetScenes()
         {
-            return scenes;
+            return _scenes;
         }
 
         public int GetActiveSceneBuildId()
         {
-            return activeScene;
+            return _activeScene;
         }
     }
 
@@ -127,7 +127,7 @@ namespace SceneManager
             StartCoroutine(LoadScenes(sceneLoader));
         }
 
-        IEnumerator LoadScenes(SceneLoader sceneLoader)
+        private IEnumerator LoadScenes(SceneLoader sceneLoader)
         {
             isLoading = true;
             progress = 0;
