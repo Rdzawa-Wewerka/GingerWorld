@@ -61,7 +61,7 @@ public static class ScenesPresetMenu
     {
         var loader = ScriptableObject.CreateInstance<ScenesPreset>();
 
-        loader.Scenes = EditorSceneManager.GetSceneManagerSetup();
+        loader.scenes = EditorSceneManager.GetSceneManagerSetup();
 
         AssetDatabase.CreateAsset(loader, assetPath);
 

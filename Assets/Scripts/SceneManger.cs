@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class SceneManger : MonoBehaviour
 {
     public ScenesPreset neverUnload;
-    public float progress = 0;
-    public bool isLoading = false;
+
+    public float progress { get; private set; } = 0;
+    public bool isLoading { get; private set; } = false;
 
     private struct SceneData
     {
@@ -38,7 +39,7 @@ public class SceneManger : MonoBehaviour
             activeScene = SceneManager.GetActiveScene().buildIndex;
         }
 
-        public void AddLoadedScens()
+        public void AddLoadedScenes()
         {
             for (int i = 0; i < SceneManager.loadedSceneCount; i++)
             {
@@ -51,7 +52,7 @@ public class SceneManger : MonoBehaviour
         public void AddScenesFromPreset(ScenesPreset preset)
         {
             List<int> toLoad = new List<int>();
-            foreach (SceneSetup scene in preset.Scenes)
+            foreach (SceneSetup scene in preset.scenes)
             {
                 int idx = SceneUtility.GetBuildIndexByScenePath(scene.path);
                 SceneData data = new SceneData(-1, false, false, false);
@@ -76,7 +77,7 @@ public class SceneManger : MonoBehaviour
 
         public void DontUnloadFromPreset(ScenesPreset preset)
         {
-            foreach (SceneSetup scene in preset.Scenes)
+            foreach (SceneSetup scene in preset.scenes)
             {
                 int idx = SceneUtility.GetBuildIndexByScenePath(scene.path);
                 SceneData data = new SceneData(-1, false, false, false);
@@ -102,7 +103,7 @@ public class SceneManger : MonoBehaviour
     {
         SceneLoader sceneLoader = new SceneLoader();
 
-        sceneLoader.AddLoadedScens();
+        sceneLoader.AddLoadedScenes();
         sceneLoader.AddScenesFromPreset(preset);
         sceneLoader.DontUnloadFromPreset(neverUnload);
 
