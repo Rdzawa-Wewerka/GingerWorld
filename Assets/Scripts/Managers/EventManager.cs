@@ -10,6 +10,10 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager Instance { get; private set; }
 
+    EventManager()
+    {
+
+    }
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -20,6 +24,6 @@ public class EventManager : MonoBehaviour
         Instance = this;
     }
 
-
+    public SceneManager.SceneManager sceneManager;
 
 }
