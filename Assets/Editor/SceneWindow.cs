@@ -16,7 +16,7 @@ class SceneWindow : EditorWindow
 
     private List<ScenesPreset> GetAllScenesPreset()
     {
-        var guids = AssetDatabase.FindAssets("t:" + typeof(ScenesPreset).Name);
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(ScenesPreset).Name);
         List<ScenesPreset> assets = new List<ScenesPreset>();
         foreach (var guid in guids)
         {
