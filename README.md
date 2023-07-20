@@ -12,3 +12,8 @@ Required software:
 Tools setup:
 
 -   Add your `UnityYAMLMerge` tool to your PATH. ([Read more](https://docs.unity3d.com/Manual/SmartMerge.html))
+
+# Docs
+
+-   [StyleGuides](Assets/Docs/StyleGuides)
+-   [Scenes](Assets/Docs/Scenes)
