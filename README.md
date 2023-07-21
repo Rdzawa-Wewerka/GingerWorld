@@ -15,5 +15,5 @@ Tools setup:
 
 # Docs
 
--   [StyleGuides](Assets/Docs/StyleGuides)
--   [Scenes](Assets/Docs/Scenes)
+-   [StyleGuides](Assets/Docs/StyleGuides.md)
+-   [Scenes](Assets/Docs/Scenes.md)
