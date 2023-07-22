@@ -78,6 +78,7 @@ class SectorGenerator : EditorWindow
                 for (int i = 0; i < child.GetComponent<MeshRenderer>().sharedMaterials.Length; i++)
                     materials.Add(allowMaterials[child.gameObject.name]);
                 child.GetComponent<MeshRenderer>().sharedMaterials = materials.ToArray();
+                child.AddComponent<MeshCollider>();
             }
 
             chunk.transform.parent = parent.transform;
