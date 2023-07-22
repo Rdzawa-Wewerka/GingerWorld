@@ -17,3 +17,4 @@ Tools setup:
 
 -   [StyleGuides](Assets/Docs/StyleGuides.md)
 -   [Scenes](Assets/Docs/Scenes.md)
+-   [Sector Creator](Assets/Docs/SectorCreator.md)
